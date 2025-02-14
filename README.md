@@ -9,6 +9,9 @@ This is an **RPM and Dial App** built using **Jetpack Compose** for modern Andro
 - 🎚️ **Interactive Slider**: Adjusts the needle position in real-time.
 - 🎨 **Smooth UI**: Clean and minimalistic design for an engaging experience.
 - 🛠️ **Jetpack Compose**: Uses declarative UI with **Material 3** components.
+## Screenshots
+<img width="365" alt="RPM-Slider" src="https://github.com/user-attachments/assets/8eb50220-fff2-486d-bdc1-818fee4e8497" />
+
 
 ## Tech Stack
 - **Kotlin** 🟡
