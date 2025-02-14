@@ -6,9 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.rpmsilderapp.ui.theme.RPMSilderAppTheme
@@ -20,9 +22,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             RPMSilderAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    RPMSliderApp(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                    RPMSlider(
+                        modifier = Modifier,
+
                     )
                 }
             }
@@ -31,17 +33,32 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun RPMSliderApp(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun RPMSliderApp(modifier: Modifier = Modifier) {
+    // calls to RPMSlider and DialWithNeedle go here
+}
+
+@Composable
+fun RPMSlider(
+    /* parameters? */
+    modifier: Modifier = Modifier
+) {
+    // the slider code will go here
+}
+
+@Composable
+fun DialWithNeedle(
+    /* parameters? */
+    modifier: Modifier = Modifier) {
+    // show the dial and needle in here
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     RPMSilderAppTheme {
-        RPMSliderApp("Android")
+        RPMSliderApp(modifier = Modifier
+        .fillMaxSize()
+        .wrapContentSize(Alignment.Center)
+        )
     }
 }
