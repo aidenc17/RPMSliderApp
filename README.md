@@ -11,6 +11,7 @@ This is an **RPM and Dial App** built using **Jetpack Compose** for modern Andro
 - 🛠️ **Jetpack Compose**: Uses declarative UI with **Material 3** components.
 ## Screenshots
 <img width="365" alt="RPM-Slider" src="https://github.com/user-attachments/assets/8eb50220-fff2-486d-bdc1-818fee4e8497" />
+<img width="344" alt="RPM-Slider in use" src="https://github.com/user-attachments/assets/d04b3d1a-2f2c-4726-8d3b-4988204321a3" />
 
 
 ## Tech Stack
