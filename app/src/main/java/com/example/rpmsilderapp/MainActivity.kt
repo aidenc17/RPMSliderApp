@@ -16,6 +16,7 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -35,7 +36,6 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     RPMSlider(
                         modifier = Modifier,
-
                     )
                 }
             }
@@ -45,10 +45,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun RPMSliderApp(modifier: Modifier = Modifier) {
+    var sliderPosition by remember { mutableFloatStateOf(0f) }
     // calls to RPMSlider and DialWithNeedle go here
 Column(modifier = Modifier) {
-    DialWithNeedle()
-    RPMSlider()
+    DialWithNeedle(sliderPosition)
+
+    //state hoisting
+    RPMSlider(sliderPosition, { sliderPosition = it })
 }
 
 }
@@ -56,9 +59,11 @@ Column(modifier = Modifier) {
 @Composable
 fun RPMSlider(
     /* parameters? */
+    sliderPosition: Float,
+    onSliderChange: (Float) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var sliderPosition by remember { mutableStateOf(0f) }
+
         Column(modifier = modifier){
             Slider(
                 value = sliderPosition,
@@ -75,6 +80,7 @@ fun RPMSlider(
 @Composable
 fun DialWithNeedle(
     /* parameters? */
+    sliderPosition: Float,
     modifier: Modifier = Modifier) {
 
     // show the dial and needle in here
@@ -83,13 +89,16 @@ fun DialWithNeedle(
             contentDescription = "Dial")
         Image(painter = painterResource(id = R.drawable.rpmneedle),
             contentDescription = "Needle",
-            modifier = Modifier.rotate(0f))
+
+            //linear interpolation
+            modifier = Modifier.rotate(sliderPosition * 270f)
+        )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun RPM_Preview() {
     RPMSilderAppTheme {
         RPMSliderApp(modifier = Modifier
         .fillMaxSize()
